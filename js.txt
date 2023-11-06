@@ -112,17 +112,20 @@ console.log(fibonacci(5));  // Выведет 3, так как пятое чис
  * console.log(sumFn(3)) - 18
  */
 function getOperationFn(initialValue, operatorFn) {
+  let currentValue = initialValue;
+
   // Проверяем, была ли предоставлена функция операции.
   if (operatorFn) {
     // Если функция операции предоставлена, возвращаем функцию,
     // которая применяет операцию к хранимому значению и новому значению.
     return function(newValue) {
-      return operatorFn(initialValue, newValue);
+      currentValue = operatorFn(currentValue, newValue);
+      return currentValue;
     };
   } else {
-    // Если функция операции не предоставлена, всегда возвращаем начальное значение.
+    // Если функция операции не предоставлена, всегда возвращаем текущее значение.
     return function() {
-      return initialValue;
+      return currentValue;
     };
   }
 }
