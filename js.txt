@@ -30,15 +30,6 @@ function sumTo(n) {
   return sum;
 }
 
-// Пример использования:
-function recSumTo(n) {
-  if (n === 1) {
-    return 1; // Базовый случай: сумма числа 1 равна 1.
-  } else {
-    return n + recSumTo(n - 1); // Рекурсивный случай: сумма числа n равна n плюс сумма числа (n-1).
-  }
-}
-
 //Пример использования:
 const result = recSumTo(5);
 console.log(result); // Выводит 15, так как 1 + 2 + 3 + 4 + 5 = 15
